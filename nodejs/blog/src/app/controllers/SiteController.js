@@ -1,20 +1,25 @@
-const Course = require('../models/Course')
+const Course = require('../models/Course');
+const { parseArray } = require('../../utils/mongoose')
 
 class SiteController {
     // [GET] /home
-    async home(req, res) {
+    async home(req, res, next) {
         try {
-            const data = await Course.find({});
-            res.json(data);
-        }  catch (err) {
-            res.status(400).json({error: err});
+            const courses = await Course.find({});
+            
+            return res.render('home', {
+                courses: parseArray(courses)
+            })
+        } catch (err) {
+            next(err)
+            // res.status(400).json({ error: err });
         }
     }
 
     // [GET] /search
     search(req, res) {
-        res.send('search')
+        res.send('search');
     }
 }
 
-module.exports = new SiteController
+module.exports = new SiteController();
