@@ -4,6 +4,10 @@ const path = require('path');
 const app = express();
 const port = 3000;
 
+// Middleware
+const SortMiddleware = require('./app/middlewares/SortMiddleware');
+app.use(SortMiddleware)
+
 // Method override
 const methodOverride = require('method-override')
 
