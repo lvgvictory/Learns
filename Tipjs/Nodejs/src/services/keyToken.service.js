@@ -3,7 +3,7 @@
 const keytokenModel = require('../models/keytoken.model')
 
 class KeyTokenService {
-    static createKeyToken = async ({ userId, publicKey, privateKey }) => {
+    static createKeyToken = async ({ userId, publicKey, privateKey, refreshToken }) => {
         // level 0
         // try {
         //     const tokens = await keytokenModel.create({

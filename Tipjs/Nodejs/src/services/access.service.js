@@ -44,7 +44,15 @@ class AccessService {
 
         // 4.
         // create token pair
+        const { _id: userId } = foundShop
         const tokens = await createTokenPair({userId: foundShop._id, email}, publicKey, privateKey)
+
+        await KeyTokenService.createKeyToken({
+            refreshToken: tokens.refreshToken,
+            privateKey,
+            publicKey,
+            userId
+        })
 
         return {
             shop: getInfoData({ fields: ['_id', 'name', 'email'], object: foundShop }),
