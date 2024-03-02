@@ -18,7 +18,6 @@ class SuccessResponse {
     }
 
     send(res, headers = {}) {
-        console.log(this, 11111)
         return res.status(this.status).json(this)
     }
 }

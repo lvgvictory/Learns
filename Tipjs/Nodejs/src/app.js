@@ -4,20 +4,15 @@ const morgan = require('morgan')
 const { default: helmet } = require('helmet')
 const compression = require('compression')
 
-const { countConnect, checkOverLoad } = require('./helpers/check.connect')
+// const { countConnect, checkOverLoad } = require('./helpers/check.connect')
 const e = require('express')
 
 const app = express()
 
 // init middlewares
-app.use(morgan('dev'))
-// morgan('combined')
-// morgan('common')
-// morgan('short')
-// morgan('tiny')
-// morgan('dev')
-app.use(helmet())
-app.use(compression())
+app.use(morgan('dev')) // Hiển thị các log
+app.use(helmet()) // che dấu Header
+app.use(compression()) // nén dữ liệu trước khi gửi đến máy chủ
 app.use(express.json())
 app.use(express.urlencoded({ extended: true}))
 
