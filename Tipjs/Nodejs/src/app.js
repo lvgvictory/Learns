@@ -4,7 +4,7 @@ const morgan = require('morgan')
 const { default: helmet } = require('helmet')
 const compression = require('compression')
 
-const { countConnect, checkOverLoad } = require('./helpers/check.connect')
+// const { countConnect, checkOverLoad } = require('./helpers/check.connect')
 const e = require('express')
 
 const app = express()
@@ -16,8 +16,8 @@ app.use(morgan('dev'))
 // morgan('short')
 // morgan('tiny')
 // morgan('dev')
-app.use(helmet())
-app.use(compression())
+app.use(helmet()) // bảo mật
+app.use(compression()) // tối ưu paylod
 app.use(express.json())
 app.use(express.urlencoded({ extended: true}))
 
