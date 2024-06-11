@@ -25,7 +25,7 @@ class Database {
       maxPoolSize: 100
     })
       .then(_ => console.log(`Connected Mongodb Success::`, countConnect()))
-      .catch(err => console.log(`Error Connect!`))
+      .catch(err => console.log(`Error Connect! => ${err.message}`))
   }
 
   static getInstance() {

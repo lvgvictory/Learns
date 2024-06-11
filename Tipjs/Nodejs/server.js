@@ -3,10 +3,10 @@ const app = require('./src/app');
 const PORT = process.env.PORT || 3056
 
 const server = app.listen(PORT, () => {
-  console.log(`WSV eCo,,erce start with ${PORT}`)
+  console.log(`WSV eCommerce start with ${PORT}`)
 })
 
-process.on('SIGINT', () => {
+process.on('SIGINT', () => { // SIGINT <=> ctrl + c
   server.close(() => {
     console.log(`Exit Server Express`)
   })

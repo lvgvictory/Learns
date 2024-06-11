@@ -10,9 +10,14 @@ const e = require('express')
 const app = express()
 
 // init middlewares
-app.use(morgan('dev')) // Hiển thị các log
-app.use(helmet()) // che dấu Header
-app.use(compression()) // nén dữ liệu trước khi gửi đến máy chủ
+app.use(morgan('dev'))
+// morgan('combined')
+// morgan('common')
+// morgan('short')
+// morgan('tiny')
+// morgan('dev')
+app.use(helmet()) // bảo mật
+app.use(compression()) // tối ưu paylod
 app.use(express.json())
 app.use(express.urlencoded({ extended: true}))
 
