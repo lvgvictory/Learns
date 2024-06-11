@@ -1,17 +1,17 @@
-// // type CallbackForEach = (item: any, index: number) => void
+// type CallbackForEach = (item: any, index: number) => void
 
-// // type Constructor = new (...args: any[]) => any
+// type Constructor = new (...args: any[]) => any
 
-// // type Constructor = {
-// //   new(): any
-// // }
+// type Constructor = {
+//   new(): any
+// }
 
-// // interface Test {
-// //   services: Constructor[],
-// //   controller: Constructor[],
-// // }
+// interface Test {
+//   services: Constructor[],
+//   controller: Constructor[],
+// }
 
-// // Generic
+// Generic
 // interface User {
 //   name: string,
 //   age: number
