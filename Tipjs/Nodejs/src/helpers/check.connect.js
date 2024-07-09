@@ -9,7 +9,7 @@ const _SECONDS = 5000
 // count Connect
 const countConnect = () => {
   const numConnection = mongoose.connections.length
-  
+  console.log(`Number of connections:: ${numConnection}`)
   return numConnection
 }
 
@@ -18,8 +18,8 @@ const countConnect = () => {
 const checkOverLoad = () => {
   setInterval(() => {
     const numConnection = mongoose.connections.length
-    const numCores = os.cpus().length
-    const memoryUsage = process.memoryUsage().rss
+    const numCores = os.cpus().length // check máy tính xem bao nhiêu cores
+    const memoryUsage = process.memoryUsage().rss // Lấy memory đã sử dụng
 
     // Example maximum number of connections based on number osf cores
     const maxConnections = numCores * 5
@@ -29,6 +29,7 @@ const checkOverLoad = () => {
 
     if (numConnection > maxConnections) {
       console.log(`Connection overload detected`)
+      // notify.send(...)
     }
 
   }, _SECONDS) // Monitor every 5 seconds
