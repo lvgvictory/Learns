@@ -1,11 +1,11 @@
 // Closures
-function test(): Function {
-  return function(a: number, b: number) {
-    return a + b;
-  }
-}
+// function test(): Function {
+//   return function(a: number, b: number) {
+//     return a + b;
+//   }
+// }
 
-console.log(test()(1, 2))
+// console.log(test()(1, 2))
 
 // Decorators di kem voi class
 
@@ -20,6 +20,38 @@ console.log(test()(1, 2))
 
 // }
 // }
+
+/**
+ * 
+ * @param target // instance cua class do
+ * @param propertyKey 
+ * @param descriptor 
+ */
+function logger(target: any, propertyKey: any, descriptor?: PropertyDescriptor) {
+  console.log(111, target)
+  console.log(222, propertyKey)
+  console.log(333, descriptor)
+}
+
+function enumerable(value: boolean) {
+  return function (target: any, propertyKey: any, descriptor?: PropertyDescriptor) {
+    console.log(value)
+    console.log(111, target)
+    console.log(222, propertyKey)
+    console.log(333, descriptor)
+    // descriptor.enumerable = value;
+  };
+}
+
+class TestController {
+  @enumerable(false)
+  hello() {
+    // console.log("Hello method has been called.");
+  }
+}
+
+const test1 = new TestController
+test1.hello();
 
 
 // function Xn(x: number) {
