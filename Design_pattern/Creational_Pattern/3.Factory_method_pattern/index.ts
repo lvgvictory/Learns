@@ -25,3 +25,30 @@ abstract class Creator {
         return `Creator: The same creator's code has just worked with ${product.operation()}`;
     }
 }
+
+// Các lớp Creator cụ thể
+class ConcreteCreator1 extends Creator {
+    public factoryMethod(): Product {
+        return new ConcreteProduct1();
+    }
+}
+
+class ConcreteCreator2 extends Creator {
+    public factoryMethod(): Product {
+        return new ConcreteProduct2();
+    }
+}
+
+// Client code
+function clientCode1(creator: Creator) {
+    console.log(`Client: I'm not aware of the creator's class, but it still works.\n${creator.someOperation()}`);
+}
+
+
+// Sử dụng
+console.log("App: Launched with ConcreteCreator1.");
+clientCode1(new ConcreteCreator1());
+console.log("");
+
+console.log("App: Launched with ConcreteCreator2.");
+clientCode1(new ConcreteCreator2());

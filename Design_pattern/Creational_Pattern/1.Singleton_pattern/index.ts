@@ -1,5 +1,5 @@
-class DatabaseConnection {
-    private static instance: DatabaseConnection | null = null;
+class DatabaseConnection123 {
+    private static instance: DatabaseConnection123 | null = null;
     private host: string;
     private port: number;
 
@@ -8,11 +8,12 @@ class DatabaseConnection {
         this.port = port;
     }
 
-    public static getInstance(host: string, port: number): DatabaseConnection {
-        if (!DatabaseConnection.instance) {
-            DatabaseConnection.instance = new DatabaseConnection(host, port);
+    public static getInstance(host: string, port: number): DatabaseConnection123 {
+        if (!DatabaseConnection123.instance) {
+            DatabaseConnection123.instance = new DatabaseConnection123(host, port);
         }
-        return DatabaseConnection.instance;
+
+        return DatabaseConnection123.instance;
     }
 
     public connect(): void {
@@ -25,9 +26,9 @@ class DatabaseConnection {
 }
 
 // Sử dụng Singleton
-const connection1 = DatabaseConnection.getInstance('localhost', 5432);
+const connection1 = DatabaseConnection123.getInstance('localhost', 5432);
 connection1.connect();
 connection1.query('SELECT * FROM users');
 
-const connection2 = DatabaseConnection.getInstance('localhost', 5432);
+const connection2 = DatabaseConnection123.getInstance('localhost', 5432);
 console.log('Các kết nối có giống nhau không:', connection1 === connection2);

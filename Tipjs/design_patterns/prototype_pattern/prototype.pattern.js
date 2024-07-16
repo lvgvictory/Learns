@@ -37,4 +37,4 @@ cr7.score()
 console.log(`${cr7.name} has recored ${cr7.goals} this season ${JSON.stringify(cr7.stats)}`)
 
 m10.score()
-console.log(`${m10.name} has recored ${m10.goals} this season ${JSON.stringify(cr7.stats)}`)
+console.log(`${m10.name} has recored ${m10.goals} this season ${JSON.stringify(m10.stats)}`)
