@@ -1,4 +1,7 @@
-// Abstract Factory là một mẫu thiết kế thuộc nhóm Creational Pattern, cho phép bạn tạo ra các họ đối tượng liên quan mà không cần chỉ định các lớp cụ thể của chúng. Abstract Factory cung cấp một interface để tạo ra các đối tượng trong một họ sản phẩm liên quan.
+namespace abstractFactoryPattern {
+// Abstract Factory là một mẫu thiết kế thuộc nhóm Creational Pattern, 
+// cho phép bạn tạo ra các họ đối tượng liên quan mà không cần chỉ định các lớp cụ thể của chúng. 
+// Abstract Factory cung cấp một interface để tạo ra các đối tượng trong một họ sản phẩm liên quan.
 // Cách sử dụng Abstract Factory pattern:
 
 // Định nghĩa interfaces cho mỗi sản phẩm riêng biệt trong họ sản phẩm.
@@ -100,3 +103,5 @@ clientCode3(new ModernFurnitureFactory());
 
 console.log("\nClient: Testing the same client code with Victorian Furniture Factory:");
 clientCode3(new VictorianFurnitureFactory());
+
+}

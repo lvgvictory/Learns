@@ -1,4 +1,5 @@
-// Interface chung cho tất cả các sản phẩm
+namespace factoryMethodPattern {
+    // Interface chung cho tất cả các sản phẩm
 interface Product {
     operation(): string;
 }
@@ -52,3 +53,4 @@ console.log("");
 
 console.log("App: Launched with ConcreteCreator2.");
 clientCode1(new ConcreteCreator2());
+}
