@@ -27,7 +27,7 @@ class DiscountService {
             shopId, min_order_value, product_ids, applies_to, name, description,
             type, value, max_value, max_uses, uses_count, max_uses_per_user, users_used
         } = payload
-
+        console.log('payload', payload)
         if (new Date() < new Date(start_date) || new Date(end_date) < new Date()) {
             throw new BadRequestError('Discout code has expired!')
         }
@@ -44,7 +44,7 @@ class DiscountService {
 
         if (foundDiscount && foundDiscount.discount_is_active) {
             throw new BadRequestError('Discount exists!')
-        }
+        }        
 
         const newDiscount = await discount.create({
             discount_name: name,
@@ -84,7 +84,7 @@ class DiscountService {
             discount_code: code,
             discount_shopId: convertToObjectIdMongodb(shopId)
         }).lean()
-
+        console.log('foundDiscount', foundDiscount)
         if (!foundDiscount || !foundDiscount.discount_is_active) {
             throw new NotFoundError('Discount code not found!')
         }
@@ -93,6 +93,7 @@ class DiscountService {
         let products = []
 
         if (discount_applies_to === 'all') {
+            console.log(1111)
             products = await findAllProducts({
                 filter: {
                     product_shop: convertToObjectIdMongodb(shopId),
@@ -106,6 +107,7 @@ class DiscountService {
         }
 
         if (discount_applies_to === 'specific') {
+            console.log('discount_product_ids', discount_product_ids)
             products = await findAllProducts({
                 filter: {
                     _id: {$in: discount_product_ids},
@@ -116,6 +118,9 @@ class DiscountService {
                 sort: 'ctime',
                 select: ['product_name']
             })
+
+            console.log(2222,+limit, +page)
+
         }
 
         return products

@@ -18,7 +18,7 @@ class DiscountController {
         new SuccessResponse({
             message: 'Get All Discount Code Success!',
             metadata: await DiscountService.getAllDiscountCodesByShop({
-                ...req.body,
+                ...req.query,
                 shopId: req.user.userId,
             })
         }).send(res)

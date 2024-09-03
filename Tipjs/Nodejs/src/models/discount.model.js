@@ -7,7 +7,7 @@ const DOCUMENT_NAME = 'Discount'
 const COLLECTION_NAME = 'discounts'
 
 // Declare the Schema of the Mongo model
-var discountSchema = new Schema({
+const discountSchema = new Schema({
     discount_name: { type: String, required: true},
     discount_description: { type: String, required: true},
     discount_type: { type: String, default: 'fixed_amount' }, // percentage

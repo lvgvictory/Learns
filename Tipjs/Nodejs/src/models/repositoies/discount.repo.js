@@ -2,7 +2,7 @@
 
 const { unGetSelectData, getSelectData } = require("../../utils");
 
-const findAllDiscountCodesUnselect = async ({filter, limit = 50, page = 1, unSelect, model}) => {
+const findAllDiscountCodesUnselect = async ({filter, limit = 50, page = 1, unSelect, model, sort='ctime'}) => {
     const skip = (page - 1) * limit
     const sortBy = sort === 'ctime' ? {_id: -1} : {_id: 1}
 
@@ -16,7 +16,7 @@ const findAllDiscountCodesUnselect = async ({filter, limit = 50, page = 1, unSel
     return documents
 }
 
-const findAllDiscountCodesSelect = async ({filter, limit = 50, page = 1, Select, model}) => {
+const findAllDiscountCodesSelect = async ({filter, limit = 50, page = 1, Select, model, sort='ctime'}) => {
     const skip = (page - 1) * limit
     const sortBy = sort === 'ctime' ? {_id: -1} : {_id: 1}
 
