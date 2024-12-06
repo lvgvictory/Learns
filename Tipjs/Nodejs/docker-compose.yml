@@ -1,0 +1,21 @@
+version: "3.5"
+volumes:
+  redis_tipjs_volume:
+services:
+  redis:
+    restart: always
+    image: redis:latest
+    container_name: redis
+    ports:
+      - "6379:6379"
+    expose:
+      - "6379"
+    volumes:
+      - redis_tipjs_volume:/data
+    networks:
+      - ecommerce-network
+
+networks:
+  ecommerce-network:
+    driver: bridge
+    name: ecommerce-network
