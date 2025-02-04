@@ -84,7 +84,7 @@ class DiscountService {
             discount_code: code,
             discount_shopId: convertToObjectIdMongodb(shopId)
         }).lean()
-        console.log('foundDiscount', foundDiscount)
+
         if (!foundDiscount || !foundDiscount.discount_is_active) {
             throw new NotFoundError('Discount code not found!')
         }
@@ -93,7 +93,6 @@ class DiscountService {
         let products = []
 
         if (discount_applies_to === 'all') {
-            console.log(1111)
             products = await findAllProducts({
                 filter: {
                     product_shop: convertToObjectIdMongodb(shopId),
@@ -107,7 +106,6 @@ class DiscountService {
         }
 
         if (discount_applies_to === 'specific') {
-            console.log('discount_product_ids', discount_product_ids)
             products = await findAllProducts({
                 filter: {
                     _id: {$in: discount_product_ids},
@@ -118,9 +116,6 @@ class DiscountService {
                 sort: 'ctime',
                 select: ['product_name']
             })
-
-            console.log(2222,+limit, +page)
-
         }
 
         return products

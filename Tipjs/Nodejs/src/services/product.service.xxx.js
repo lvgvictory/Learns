@@ -156,7 +156,7 @@ class Clothing extends Product {
         if (!newClothing) {
             throw new BadRequestError('create new Clothing error!')
         }
-        console.log(11111, newClothing)
+        
         const newProduct = await super.createProduct(newClothing._id)
 
         if (!newProduct) {
@@ -168,9 +168,7 @@ class Clothing extends Product {
 
     async updateProduct(productId) {
         // 1. remove attr has null and undefined
-        console.log('1111: ', this)
         const objectParams = removeUndefinedObject(this)
-        console.log('2222: ', objectParams)
 
         // 2. check xem update o dau
         if (objectParams.product_attributes) {

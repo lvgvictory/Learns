@@ -68,7 +68,6 @@ class CheckoutService {
 
       // check product available
       const checkProductServer = await checkProductByServer(item_products);
-      console.log('checkProductServer::::: ', checkProductServer);
 
       if (!checkProductServer[0]) {
         throw new BadRequestError("Order wrong");

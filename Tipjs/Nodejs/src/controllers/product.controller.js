@@ -85,7 +85,6 @@ class ProductController {
   }
 
   getListSearchProductByUser = async (req, res) => {
-    console.log(req.params)
     new SuccessResponse({
       message: 'Get list getListSearchProductByUser Success!',
       metadata: await ProductServiceV2.getListSearchProductByUser(req.params)
@@ -93,7 +92,6 @@ class ProductController {
   }
 
   findAllProducts = async (req, res) => {
-    console.log(req.params)
     new SuccessResponse({
       message: 'Get list findAllProducts Success!',
       metadata: await ProductServiceV2.findAllProducts(req.query)
@@ -101,7 +99,6 @@ class ProductController {
   }
 
   findProduct = async (req, res) => {
-    console.log(req.params)
     new SuccessResponse({
       message: 'Get findProduct Success!',
       metadata: await ProductServiceV2.findProduct({

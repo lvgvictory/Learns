@@ -18,8 +18,9 @@ const NotificationSchema = new Schema(
       required: true,
     },
     noti_senderId: {
-      type: String,
+      type: Schema.Types.ObjectId,
       required: true,
+      ref: 'Shop',
     },
     noti_receiverId: {
       type: Number,
